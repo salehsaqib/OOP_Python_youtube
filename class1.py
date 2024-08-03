@@ -15,8 +15,8 @@ class Item:
     def calculate_total_price(self):
         return self.price * self.quantity
     
-item1 = Item("phone", 100, -1)
-item2 = Item("Laptop", -1000, 3)
+item1 = Item("phone", 100, 1)
+item2 = Item("Laptop", 1000, 3)
 
 print(item1.calculate_total_price())
 print(item2.calculate_total_price())
