@@ -2,17 +2,21 @@
 First class from a youtube tutorial
 """
 class Item:
-    def calculate_total_price(self, x, y):
-        return x*y
-    
-item1 = Item()
-item1.name = "Phone"
-item1.price = 100
-item1.quantity = 5
-print(item1.calculate_total_price(item1.price, item1.quantity))
+    def __init__(self, name, price, quantity=0):
+        # Run Validation to the received Argumants
+        assert price >= 0, f"Price {price} is not greater than or equal to zero!"
+        assert quantity >= 0, f"Quantity {quantity} is not greater than or equal to zero!"
 
-item2 = Item()
-item2.name = "Laptop"
-item2.price = 1000
-item2.quantity = 3
-print(item2.calculate_total_price(item2.price, item2.quantity))
+        # Assign to self object
+        self.name = name
+        self.price = price
+        self.quantity = quantity
+
+    def calculate_total_price(self):
+        return self.price * self.quantity
+    
+item1 = Item("phone", 100, -1)
+item2 = Item("Laptop", -1000, 3)
+
+print(item1.calculate_total_price())
+print(item2.calculate_total_price())
